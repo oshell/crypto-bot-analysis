@@ -1,28 +1,26 @@
 <template>
-  <v-app>
-    <v-app-bar>
-      <v-toolbar-title>Crypto Bot Analysis</v-toolbar-title>
-    </v-app-bar>
+  <div id="app">
+    <v-toolbar>
+      <v-toolbar-title class="toolbar-title">Crypto Bot Status</v-toolbar-title>
+    </v-toolbar>
     <v-container id="app">
       <v-row>
         <v-col cols="12">
-          <v-card class="ma-12" outlined tile>
-            <LogTable />
-          </v-card>
+           <Info />
         </v-col>
       </v-row>
     </v-container>
-  </v-app>
+  </div>
 </template>
 
 <script>
-import LogTable from "./components/LogTable";
+import Info from "./components/Info";
 
 export default {
   name: "App",
 
   components: {
-    LogTable
+    Info
   },
 
   data: () => ({
@@ -38,5 +36,11 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+
+.toolbar-title {
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
 }
 </style>
