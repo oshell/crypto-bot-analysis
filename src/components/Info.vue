@@ -9,14 +9,14 @@
 
     <v-col cols="12" md="4" xs="12">
       <div class="ma-12 info-box">
-        <div class="title">Status</div>
-        <div class="value">{{info.status}}</div>
+        <div class="title">Current Status</div>
+        <div :class="['value', info.status === 'long' ? 'positive' : 'negative']">{{info.status}}</div>
       </div>
     </v-col>
 
     <v-col cols="12" md="4" xs="12">
       <div class="ma-12 info-box">
-        <div class="title">Updated</div>
+        <div class="title">Last Updated</div>
         <div class="value">{{info.updated}} GMT</div>
       </div>
     </v-col>
@@ -30,43 +30,43 @@
 
     <v-col cols="12" md="4" xs="12">
       <div class="ma-12 info-box">
-        <div class="title">Entry</div>
-        <div class="value">{{info.entry}}</div>
+        <div class="title">Current Entry</div>
+        <div class="value">{{info.entry}} USD</div>
       </div>
     </v-col>
 
     <v-col cols="12" md="4" xs="12">
       <div class="ma-12 info-box">
-        <div class="title">S/L</div>
-        <div class="value">{{info.sl}}</div>
+        <div class="title">Current Stop-Loss</div>
+        <div class="value">{{info.sl}} USD</div>
       </div>
     </v-col>
 
     <v-col cols="12" md="4" xs="12">
       <div class="ma-12 info-box">
-        <div class="title">P/L</div>
-        <div class="value">{{info.pl}}</div>
+        <div class="title">Current Profit/Loss</div>
+        <div :class="['value', info.pl > 0 ? 'positive' : 'negative']">{{info.pl}}%</div>
       </div>
     </v-col>
 
     <v-col cols="12" md="4" xs="12">
       <div class="ma-12 info-box">
         <div class="title">Profit per Trade</div>
-        <div class="value">{{info.profitPerTrade}}</div>
+        <div :class="['value', info.profitPerTrade > 0 ? 'positive' : 'negative']">{{info.profitPerTrade}}%</div>
       </div>
     </v-col>
 
     <v-col cols="12" md="4" xs="12">
       <div class="ma-12 info-box">
         <div class="title">Profit Absolute</div>
-        <div class="value">{{info.profitAbsolute}}</div>
+        <div :class="['value', info.profitAbsolute > 0 ? 'positive' : 'negative']">{{info.profitAbsolute}}%</div>
       </div>
     </v-col>
 
     <v-col cols="12" md="4" xs="12">
       <div class="ma-12 info-box">
         <div class="title">Last Close</div>
-        <div class="value">{{info.lastClose}}</div>
+        <div class="value">{{info.lastClose}} USD</div>
       </div>
     </v-col>
 
@@ -80,7 +80,7 @@
     <v-col cols="12" md="4" xs="12">
       <div class="ma-12 info-box">
         <div class="title">Success Rate</div>
-        <div class="value">{{info.successRate}}</div>
+        <div class="value">{{info.successRate}}%</div>
       </div>
     </v-col>
   </v-row>
@@ -125,5 +125,13 @@ export default {
 
 .value {
   font-size: 30px;
+}
+
+.positive {
+  color: #1eaa24;
+}
+
+.negative {
+  color: #ff5252
 }
 </style>
