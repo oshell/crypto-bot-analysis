@@ -10,7 +10,7 @@
     <v-col cols="12" md="4" xs="12">
       <div class="ma-12 info-box">
         <div class="title">Current Status</div>
-        <div :class="['value', info.status === 'long' ? 'positive' : 'negative']">{{info.status}}</div>
+        <div :class="['value', info.status === 'long' ? 'positive' : '', info.status === 'short' ? 'negative' : '']">{{info.status}}</div>
       </div>
     </v-col>
 
@@ -28,21 +28,21 @@
       </div>
     </v-col>
 
-    <v-col cols="12" md="4" xs="12">
+    <v-col cols="12" md="4" xs="12" v-if="info.entry">
       <div class="ma-12 info-box">
         <div class="title">Current Entry</div>
         <div class="value">{{info.entry}} USD</div>
       </div>
     </v-col>
 
-    <v-col cols="12" md="4" xs="12">
+    <v-col cols="12" md="4" xs="12" v-if="info.sl">
       <div class="ma-12 info-box">
         <div class="title">Current Stop-Loss</div>
         <div class="value">{{info.sl}} USD</div>
       </div>
     </v-col>
 
-    <v-col cols="12" md="4" xs="12">
+    <v-col cols="12" md="4" xs="12" v-if="info.pl">
       <div class="ma-12 info-box">
         <div class="title">Current Profit/Loss</div>
         <div :class="['value', info.pl > 0 ? 'positive' : 'negative']">{{info.pl}}%</div>
