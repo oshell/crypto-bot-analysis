@@ -83,6 +83,25 @@
         <div class="value">{{info.successRate}}%</div>
       </div>
     </v-col>
+
+        <v-col xs="12">
+       <v-simple-table>
+    <template v-slot:default>
+      <thead>
+        <tr>
+          <th class="text-left">Date</th>
+          <th class="text-left">Profit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="trade in info.tradeLog" :key="trade.date">
+          <td class="text-left">{{ trade.date }}</td>
+          <td :class="['trade-pl', trade.pl > 0 ? 'positive' : 'negative']">{{ trade.pl }} %</td>
+        </tr>
+      </tbody>
+    </template>
+  </v-simple-table>
+    </v-col>
   </v-row>
 </template>
 
@@ -133,5 +152,14 @@ export default {
 
 .negative {
   color: #ff5252
+}
+
+.text-left {
+  text-align: left;
+}
+
+.trade-pl {
+  text-align: left;
+  font-weight: bold;
 }
 </style>
