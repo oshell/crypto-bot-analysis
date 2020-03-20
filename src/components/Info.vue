@@ -10,7 +10,9 @@
     <v-col cols="12" md="4" xs="12">
       <div class="ma-12 info-box">
         <div class="title">Current Status</div>
-        <div :class="['value', info.status === 'long' ? 'positive' : '', info.status === 'short' ? 'negative' : '']">{{info.status}}</div>
+        <div
+          :class="['value', info.status === 'long' ? 'positive' : '', info.status === 'short' ? 'negative' : '']"
+        >{{info.status}}</div>
       </div>
     </v-col>
 
@@ -52,14 +54,18 @@
     <v-col cols="12" md="4" xs="12">
       <div class="ma-12 info-box">
         <div class="title">Profit per Trade</div>
-        <div :class="['value', info.profitPerTrade > 0 ? 'positive' : 'negative']">{{info.profitPerTrade}}%</div>
+        <div
+          :class="['value', info.profitPerTrade > 0 ? 'positive' : 'negative']"
+        >{{info.profitPerTrade}}%</div>
       </div>
     </v-col>
 
     <v-col cols="12" md="4" xs="12">
       <div class="ma-12 info-box">
         <div class="title">Profit Absolute</div>
-        <div :class="['value', info.profitAbsolute > 0 ? 'positive' : 'negative']">{{info.profitAbsolute}}%</div>
+        <div
+          :class="['value', info.profitAbsolute > 0 ? 'positive' : 'negative']"
+        >{{info.profitAbsolute}}%</div>
       </div>
     </v-col>
 
@@ -84,23 +90,23 @@
       </div>
     </v-col>
 
-        <v-col xs="12">
-       <v-simple-table>
-    <template v-slot:default>
-      <thead>
-        <tr>
-          <th class="text-left">Date</th>
-          <th class="text-left">Profit</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="trade in info.tradeLog" :key="trade.date">
-          <td class="text-left">{{ trade.date }}</td>
-          <td :class="['trade-pl', trade.pl > 0 ? 'positive' : 'negative']">{{ trade.pl }} %</td>
-        </tr>
-      </tbody>
-    </template>
-  </v-simple-table>
+    <v-col xs="12">
+      <v-simple-table>
+        <template v-slot:default>
+          <thead>
+            <tr>
+              <th class="text-left">Date</th>
+              <th class="text-left">Profit</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="trade in info.tradeLog" :key="trade.date">
+              <td class="text-left">{{ trade.date }}</td>
+              <td :class="['trade-pl', trade.pl > 0 ? 'positive' : 'negative']">{{ trade.pl }} %</td>
+            </tr>
+          </tbody>
+        </template>
+      </v-simple-table>
     </v-col>
   </v-row>
 </template>
@@ -151,7 +157,7 @@ export default {
 }
 
 .negative {
-  color: #ff5252
+  color: #ff5252;
 }
 
 .text-left {
